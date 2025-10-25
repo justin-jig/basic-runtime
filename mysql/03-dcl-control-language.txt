@@ -1,0 +1,42 @@
+[DCL - Data Control Language]
+
+데이터 접근과 권한을 제어하는 명령어:
+- CREATE USER
+- GRANT
+- REVOKE
+- FLUSH PRIVILEGES
+
+---
+
+# 사용자 생성
+create user 'testuser'@'localhost' identified by '1234';
+
+# 권한 부여
+grant all privileges on addrdb.* to 'testuser'@'localhost';
+grant select, insert, update on addrdb.tb1k to 'testuser'@'localhost';
+
+# 권한 회수
+revoke insert, update on addrdb.tb1k from 'testuser'@'localhost';
+
+# 권한 갱신
+flush privileges;
+
+---
+
+# 권한 확인
+show grants for 'testuser'@'localhost';
+
+---
+
+# 사용자 삭제
+drop user 'testuser'@'localhost';
+
+---
+
+# 주의사항
+1. GRANT/REVOKE는 DBA(root) 권한으로만 실행 가능
+2. 변경 후 반드시 flush privileges; 실행
+3. '%'를 사용하면 모든 호스트 접근 허용됨 (보안 위험)
+   예: 'testuser'@'%'
+4. 실습 시 root 계정은 최소 권한 원칙(least privilege) 적용 권장
+```

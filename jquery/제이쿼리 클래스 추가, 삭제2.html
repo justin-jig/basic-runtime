@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>제이쿼리 클래수 추가, 삭제2</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function(){
+	var base = $('.base');
+	var id2 = $('#each2');
+	var flag = true;; //상태
+	base.click(function(){
+		if(flag){
+			base.addClass('base_text'); // 클래스명만 
+			flag = false;
+			}else{
+			base.removeClass('base_text');
+			flag = true;
+			}
+		
+		})
+	id2.remove('commom');
+	
+	});
+</script>
+<style>
+.base{border:4px soild yellow;}
+.commooon{font-size:20px; color:#f00;}
+.base text{font-weight:bold; color:#00f;} 
+</style>
+</head>
+
+<body>
+<p class="base">Hello World</p>
+<div id="each1" class="common">Hello World1</div>
+<div id="each2" class="common">Hello World2</div>
+</body>
+</html>

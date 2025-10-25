@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습1</title>
+</head>
+<body>
+
+    <script>
+        
+         function cell(name) {
+            return new Promise ((resolve, reject) => {
+                setTimeout(function(){
+                    console.log(name);
+                    resolve();
+                }, 1000)
+            })
+        }
+
+        function back() {
+            return new Promise ((resolve, reject) => {
+                setTimeout(function(){
+                    console.log('back');
+                    resolve('back');
+                }, 1000)
+            })
+        }
+
+        function hell() {
+            return new Promise ((resolve, reject) => {
+                setTimeout(function(){
+                    resolve('callback hell');
+                }, 1000)
+            })
+        }
+
+        cell('kim').then((resolve) => {
+            return back();
+        }).then((back) => {
+            console.log( back +'을 실행했구나')
+            return hell();
+        }).then((hell) => {
+            console.log('여기는 ' + hell);
+        })
+    
+    </script>
+    
+</body>
+</html>

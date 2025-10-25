@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>제이쿼리 Toggle</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function(){
+$('#info').hide();
+$('#button').click(function(){
+			$('#info').slideToggle();
+		
+		});
+});		
+</script>
+
+<style>
+#button{margin:0; background:#eee; padding:10px; cursor:pointer;}
+#info{background:#000; overflow:hidden; padding:10px; margin:0;}
+#info p{font-size:12px; color:#fff;}
+</style>
+</head>
+
+<body>
+<h1 id="button">button</h1>
+<div id="info">
+	<p>button을 클릭하면 info부분을 보여줍니다.. 보여주는 방식은 sideToggle()입니다.</p>
+</div>    
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>제이쿼리 속성 값 변경하기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function(){
+	var myimg = $('.myimg');
+	myimg.click(function(){
+			myimg.attr('src','image/Koala.jpg')
+		});
+	
+	});
+</script>
+</head>
+
+<body>
+<img src="image/Hydrangeas.jpg" alt="" class="myimg">
+</body>
+</html>

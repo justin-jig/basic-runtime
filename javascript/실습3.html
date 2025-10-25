@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3</title>
+</head>
+<body>  
+
+    <script>
+        /** 아래에 콜백 코드를 Promise로 변경 하기 
+        setTimeout(function(){
+            document.body.style.backgroundColor = 'red';
+            setTimeout(function() {
+                document.body.style.backgroundColor = 'orange';
+                setTimeout(function() {
+                    document.body.style.backgroundColor = 'yellow';
+                    
+                    setTimeout(function() {
+                        document.body.style.backgroundColor = 'green';
+                        setTimeout(function() {
+                            document.body.style.backgroundColor = 'blue';
+                        },1000)
+                    },1000)
+                },1000)
+            },1000)
+        },1000)
+        */
+
+        function backgronudColorSet(color, time) {
+
+            return new Promise ((resolve, reject) => {
+                setTimeout(function(){
+                    document.body.style.backgroundColor = color;
+                    resolve();
+                }, time)
+            })
+        }
+
+        backgronudColorSet('red').then(() => {
+            return backgronudColorSet('orange', 1000);
+        }).then(() => {
+            return backgronudColorSet('yellow', 1000);
+        }).then(() => {
+            return backgronudColorSet('green', 800);
+        }).then(() => {
+            return backgronudColorSet('blue', 500);
+        })
+
+    </script>
+    
+</body>
+</html>

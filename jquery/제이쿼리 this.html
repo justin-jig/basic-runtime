@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>제이쿼리 this</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('.view').click(function(){
+			$(this).text('저만 클릭하셨네요.')
+			$(this).css('background','#fff')
+			$(this).not(this).css('background','#f69');
+			
+		})
+	
+	});
+</script>
+<style>
+.view{padding:10px; background:#f69; cursor:pointer; margin-bottom:5px;}
+</style>
+</head>
+
+<body>
+<div class="view">저를 누르고 저만 누렀다는 글 나오게</div>
+<div class="view">저를 누르고 저만 누렀다는 글 나오게</div>
+<div class="view">저를 누르고 저만 누렀다는 글 나오게</div>
+<div class="view">저를 누르고 저만 누렀다는 글 나오게</div>
+<div class="view">저를 누르고 저만 누렀다는 글 나오게</div>
+</body>
+</html>

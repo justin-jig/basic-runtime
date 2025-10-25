@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>항상 떠 있는 레이어</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function(){
+	var cssTop = parseInt($('#sky').css('top'));
+	
+	$(window).scroll(function(){
+		var pos = $(window).scrollTop();
+		$('#sky').stop().animate({'top':pos+cssTop+'px'},500);
+		
+		
+		
+		
+		});
+	
+	});
+</script>
+<style>
+#sky{
+	position:absolute;
+	top:100px;
+	right:0;
+}
+</style>
+
+</head>
+
+<body>
+<div style="height:1000px;"></div>
+<div id="sky">스크롤해도 항상 떠 있음.</div>
+</body>
+</html>

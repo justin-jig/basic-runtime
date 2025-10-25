@@ -1,0 +1,71 @@
+[내장 함수와 연산자]
+
+---
+
+# 문자열 함수
+- concat(str1, str2, ...): 문자열 연결
+- substring(str, start, length): 부분 문자열 추출
+- left(str, length): 왼쪽부터 length 만큼 추출
+- right(str, length): 오른쪽부터 length 만큼 추출
+- repeat(str, count): 문자열 반복
+- reverse(str): 문자열 뒤집기
+- length(str): 문자열 길이 반환
+- replace(str, from_str, to_str): 문자열 치환
+
+예시:
+select concat(number, ' ', name, '님') from tb1k;
+select left(name, 2), right(number, 2) from tb1k;
+select substring(number, 2, 3) from tb1k;
+select repeat('*', age) from tb1k;
+select reverse(name) from tb1k;
+
+---
+
+# 수학 함수
+- sum(col)
+- avg(col)
+- count(col)
+- round(col, precision)
+- abs(col)
+
+예시:
+select sum(sales) as 총합, avg(sales) as 평균 from tb;
+select round(avg(sales), 2) as 평균_소수2자리 from tb;
+
+---
+
+# 날짜 / 시간 함수
+- now(): 현재 날짜와 시간
+- curdate(): 오늘 날짜
+- year(), month(), day()
+- date_add(date, interval n day)
+- datediff(date1, date2)
+
+예시:
+select now();
+insert into rightnow (b) values (now());
+select datediff(now(), '2025-01-01') as 경과일수;
+
+---
+
+# 논리/비교 연산자
+- =, <>, >, <, >=, <=
+- between a and b
+- in (값1, 값2)
+- like '%문자%'
+- is null / is not null
+- and, or, not
+
+예시:
+select * from tb where sales between 100 and 200;
+select * from tb1k where name like '%김%';
+select * from tb where month in (4, 5);
+select * from tb1k where age is not null;
+
+---
+
+# 주의사항
+1. 문자열 비교는 collation에 따라 대소문자 구분 여부가 다름
+2. between 은 포함 범위 (inclusive)
+3. like 패턴에서 %는 여러 문자, _는 한 문자
+4. null 비교 시 '=' 대신 is null 사용

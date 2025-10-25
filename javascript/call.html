@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback 지옥</title>
+</head>
+<body>
+    
+    <script>
+        setTimeout(function(){
+            document.body.style.backgroundColor = 'red';
+            setTimeout(function() {
+                document.body.style.backgroundColor = 'orange';
+                setTimeout(function() {
+                    document.body.style.backgroundColor = 'yellow';
+                    
+                    setTimeout(function() {
+                        document.body.style.backgroundColor = 'green';
+                        setTimeout(function() {
+                            document.body.style.backgroundColor = 'blue';
+                        },1000)
+                    },1000)
+                },1000)
+            },1000)
+        },1000)
+    </script>
+</body>
+</html>

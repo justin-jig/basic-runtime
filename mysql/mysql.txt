@@ -1,0 +1,873 @@
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.11 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use addrdb;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_addrdb |
++------------------+
+| addr             |
+| memo             |
+| product          |
++------------------+
+3 rows in set (0.01 sec)
+
+mysql> create table tb1k(
+    -> number varchar(5),
+    -> name varchar(10).
+    -> age int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.
+age int)' at line 3
+mysql> ^C
+mysql> create table tb1k(
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+mysql> show tables;
++------------------+
+| Tables_in_addrdb |
++------------------+
+| addr             |
+| memo             |
+| product          |
++------------------+
+3 rows in set (0.00 sec)
+
+mysql> create table tb1k(
+    -> number varchar(5),
+    -> name varchar(10).
+    -> (l
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.
+(l
+)' at line 3
+mysql> create table tb1k(
+    -> number varchar(5),
+    -> name varchar(10),
+    -> age int);
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> insert into tb1k values('A101', '강신우', 40);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into tb1k values('A105', '박문수',35);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_addrdb |
++------------------+
+| addr             |
+| memo             |
+| product          |
+| tb1k             |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from tb1k;
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
+| A105   | 박문수 |   35 |
++--------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> select concat(number,name,'님') from tb1k;
++--------------------------+
+| concat(number,name,'님') |
++--------------------------+
+| A101강신우님             |
+| A105박문수님             |
++--------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from tb1k;
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
+| A105   | 박문수 |   35 |
++--------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> select concat(number,' ' ,name,' 님 ')from tb1k;
++---------------------------------+
+| concat(number,' ' ,name,' 님 ') |
++---------------------------------+
+| A101 강신우 님                  |
+| A105 박문수 님                  |
++---------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select right(number, 2) from tb1k;
++------------------+
+| right(number, 2) |
++------------------+
+| 01               |
+| 05               |
++------------------+
+2 rows in set (0.00 sec)
+
+mysql> select left(number, 2) from tb1k;
++-----------------+
+| left(number, 2) |
++-----------------+
+| A1              |
+| A1              |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> select left(name, 2) from tb1k;
++---------------+
+| left(name, 2) |
++---------------+
+| 강신          |
+| 박문          |
++---------------+
+2 rows in set (0.00 sec)
+
+mysql> select substring(number, 2, 3) from tb1k;
++-------------------------+
+| substring(number, 2, 3) |
++-------------------------+
+| 101                     |
+| 105                     |
++-------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select repeat('*',age) from tb1k;
++------------------------------------------+
+| repeat('*',age)                          |
++------------------------------------------+
+| **************************************** |
+| ***********************************      |
++------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select reverse name from tb1k;
+ERROR 1054 (42S22): Unknown column 'reverse' in 'field list'
+mysql> select reverse name from tb1k;
+ERROR 1054 (42S22): Unknown column 'reverse' in 'field list'
+mysql> select reverse (name) from tb1k;
++----------------+
+| reverse (name) |
++----------------+
+| 우신강         |
+| 수문박         |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> create table tb(
+    -> number varchar(10),
+    -> sales int,
+    -> month int);
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> insert into tb values('A103',101 ,4);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into tb values('A102',54 ,5);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into tb values('A104',181 ,4);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into tb values('A101',184 ,4);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into tb values('A103',17 ,5);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into tb values('A101',300 ,5);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into tb values('A102',205 ,6);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into tb values('A104',93 ,5);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into tb values('A103',12 ,6);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into tb values('A107',87 ,6);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from tb;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A102   |    54 |     5 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A103   |    17 |     5 |
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
+| A104   |    93 |     5 |
+| A103   |    12 |     6 |
+| A107   |    87 |     6 |
++--------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select number from tb 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2' at line 1
+mysql> select number from tb 8;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '8' at line 1
+mysql> select sum(sales) from tb;
++------------+
+| sum(sales) |
++------------+
+|       1234 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(sales)as 합계 from tb;
++------+
+| 합계 |
++------+
+| 1234 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select concat('합계는', sum(sales), '만원','입니다.') sum(sales) as 매출 from tb;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sum(sales) as 매출 from tb' at line 1
+mysql> select concat('합계는', sum(sales), '만원','입니다.') from tb;
++------------------------------------------------+
+| concat('합계는', sum(sales), '만원','입니다.') |
++------------------------------------------------+
+| 합계는1234만원입니다.                          |
++------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select concat('합계는', sum(sales), '만원','입니다.')as 매출  from tb;
++-----------------------+
+| 매출                  |
++-----------------------+
+| 합계는1234만원입니다. |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select concat('합계는', sum(sales), '만원','입니다.')as 매출  from tb;
++-----------------------+
+| 매출                  |
++-----------------------+
+| 합계는1234만원입니다. |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select concat('평균은=','', avg(sales), '만원','입니다.')as 매출  from tb;
++----------------------------+
+| 매출                       |
++----------------------------+
+| 평균은=123.4000만원입니다. |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> create table rightnow(
+    -> a int auto_increment primary key,
+    -> b datetime);
+Query OK, 0 rows affected (0.15 sec)
+
+
+
+mysql> insert into rightnow (b) values(now());
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select *from rightnow;
++---+---------------------+
+| a | b                   |
++---+---------------------+
+| 1 | 2018-07-12 14:15:30 |
++---+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from tb limit 5;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A102   |    54 |     5 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A103   |    17 |     5 |
++--------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select sales from tb limit 10;
++-------+
+| sales |
++-------+
+|   101 |
+|    54 |
+|   181 |
+|   184 |
+|    17 |
+|   300 |
+|   205 |
+|    93 |
+|    12 |
+|    87 |
++-------+
+10 rows in set (0.00 sec)
+
+mysql> select sales,number from tb limit 5;
++-------+--------+
+| sales | number |
++-------+--------+
+|   101 | A103   |
+|    54 | A102   |
+|   181 | A104   |
+|   184 | A101   |
+|    17 | A103   |
++-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select sales,number from tb limit 5 offset 2;
++-------+--------+
+| sales | number |
++-------+--------+
+|   181 | A104   |
+|   184 | A101   |
+|    17 | A103   |
+|   300 | A101   |
+|   205 | A102   |
++-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from tb limit 5 offset 2;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A103   |    17 |     5 |
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
++--------+-------+-------+
+5 rows in set (0.00 sec)
+
+
+mysql> select sales,number from tb limit 5 offset 2;
++-------+--------+
+| sales | number |
++-------+--------+
+|   181 | A104   |
+|   184 | A101   |
+|    17 | A103   |
+|   300 | A101   |
+|   205 | A102   |
++-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from tb where sales >=100;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
++--------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from tb;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A102   |    54 |     5 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A103   |    17 |     5 |
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
+| A104   |    93 |     5 |
+| A103   |    12 |     6 |
+| A107   |    87 |     6 |
++--------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from tb where sales >=200;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
++--------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from tb where month<>6;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A102   |    54 |     5 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A103   |    17 |     5 |
+| A101   |   300 |     5 |
+| A104   |    93 |     5 |
++--------+-------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from tb where month in (4);
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
++--------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from tb where sales<50;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |    17 |     5 |
+| A103   |    12 |     6 |
++--------+-------+-------+
+2 rows in set (0.00 sec)
+
+
+mysql> select * from tb where sales between 50 and 100;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A102   |    54 |     5 |
+| A104   |    93 |     5 |
+| A107   |    87 |     6 |
++--------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from tb1k;
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
+| A105   | 박문수 |   35 |
++--------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> insert into tb1k values('A102','김기덕',28);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into tb1k values('A103','김민호',20);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into tb1k values('A104','문소리',23);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from tb1k where name like '%김%';';
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A102   | 김기덕 |   28 |
+| A103   | 김민호 |   20 |
++--------+--------+------+
+2 rows in set (0.00 sec)
+
+    '>
+    '> ^C
+mysql> select * from tb1k where name like '%문%';';
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A105   | 박문수 |   35 |
+| A104   | 문소리 |   23 |
++--------+--------+------+
+2 rows in set (0.00 sec)
+
+    '> select * from tb1k where name like '%01%';';
+mysql> select * from tb1k where number like '%1%';
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
+| A105   | 박문수 |   35 |
+| A102   | 김기덕 |   28 |
+| A103   | 김민호 |   20 |
+| A104   | 문소리 |   23 |
++--------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from tb1k where number like '%01%';
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
++--------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into tb1k (number, name) values ( 'A104', '문소리');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from tb1k;
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
+| A105   | 박문수 |   35 |
+| A102   | 김기덕 |   28 |
+| A103   | 김민호 |   20 |
+| A104   | 문소리 |   23 |
+| A104   | 문소리 | NULL |
++--------+--------+------+
+6 rows in set (0.00 sec)
+
+mysql> select * from tb1k;
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
+| A105   | 박문수 |   35 |
+| A102   | 김기덕 |   28 |
+| A103   | 김민호 |   20 |
+| A104   | 문소리 |   23 |
+| A104   | 문소리 | NULL |
++--------+--------+------+
+6 rows in set (0.00 sec)
+
+mysql> insert into tb1k (number) values ( 'A104');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into tb1k (name) values ('강부자' );
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from tb1k where age is NULL;
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A104   | 문소리 | NULL |
+| A104   | NULL   | NULL |
+| NULL   | 강부자 | NULL |
++--------+--------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from tb1k where name is NOT NULL;
++--------+--------+------+
+| number | name   | age  |
++--------+--------+------+
+| A101   | 강신우 |   40 |
+| A105   | 박문수 |   35 |
+| A102   | 김기덕 |   28 |
+| A103   | 김민호 |   20 |
+| A104   | 문소리 |   23 |
+| A104   | 문소리 | NULL |
+| NULL   | 강부자 | NULL |
++--------+--------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from tb where sales>50 and sales <=100;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A102   |    54 |     5 |
+| A104   |    93 |     5 |
+| A107   |    87 |     6 |
++--------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from tb where sales<50 or sales>2000;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |    17 |     5 |
+| A103   |    12 |     6 |
++--------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from tb where number like '%1' and month = 4 or sales >=200;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A101   |   184 |     4 |
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
++--------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from tb where number like '%1' and month = 4 or sales >=200;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A101   |   184 |     4 |
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
++--------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from tb where number like '%1' and (month = 4 or sales >=200);
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A101   |   184 |     4 |
+| A101   |   300 |     5 |
++--------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from tb;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A102   |    54 |     5 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A103   |    17 |     5 |
+| A101   |   300 |     5 |
+| A102   |   205 |     6 |
+| A104   |    93 |     5 |
+| A103   |    12 |     6 |
+| A107   |    87 |     6 |
++--------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from tb order by sales desc limit 2 offset 3;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A104   |   181 |     4 |
+| A103   |   101 |     4 |
++--------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from tb order by number;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A101   |   184 |     4 |
+| A101   |   300 |     5 |
+| A102   |    54 |     5 |
+| A102   |   205 |     6 |
+| A103   |   101 |     4 |
+| A103   |    17 |     5 |
+| A103   |    12 |     6 |
+| A104   |   181 |     4 |
+| A104   |    93 |     5 |
+| A107   |    87 |     6 |
++--------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from tb group by number;
++--------+-------+-------+
+| number | sales | month |
++--------+-------+-------+
+| A103   |   101 |     4 |
+| A102   |    54 |     5 |
+| A104   |   181 |     4 |
+| A101   |   184 |     4 |
+| A107   |    87 |     6 |
++--------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) from tb group by number;
++----------+
+| count(*) |
++----------+
+|        3 |
+|        2 |
+|        2 |
+|        2 |
+|        1 |
++----------+
+5 rows in set (0.00 sec)
+
+mysql> select number, count(*)as '건수' from tb group by number;
++--------+------+
+| number | 건수 |
++--------+------+
+| A103   |    3 |
+| A102   |    2 |
+| A104   |    2 |
+| A101   |    2 |
+| A107   |    1 |
++--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select number, sum(sales) as 합계 from tb group by number;
++--------+------+
+| number | 합계 |
++--------+------+
+| A103   |  130 |
+| A102   |  259 |
+| A104   |  274 |
+| A101   |  484 |
+| A107   |   87 |
++--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select number, sum(sales) as 합계 from tb group by number order by '합계';
++--------+------+
+| number | 합계 |
++--------+------+
+| A103   |  130 |
+| A102   |  259 |
+| A104   |  274 |
+| A101   |  484 |
+| A107   |   87 |
++--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select number, sum(sales) as 합계 from tb group by number order by sum(sales);
++--------+------+
+| number | 합계 |
++--------+------+
+| A107   |   87 |
+| A103   |  130 |
+| A102   |  259 |
+| A104   |  274 |
+| A101   |  484 |
++--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select number, sum(sales) as 합계 from tb group by number order by sum(sales) DESC;
++--------+------+
+| number | 합계 |
++--------+------+
+| A101   |  484 |
+| A104   |  274 |
+| A102   |  259 |
+| A103   |  130 |
+| A107   |   87 |
++--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select number, avg(sales) as 평균  from tb group by number having sum(sales)>=200;
++--------+----------+
+| number | 평균     |
++--------+----------+
+| A102   | 129.5000 |
+| A104   | 137.0000 |
+| A101   | 242.0000 |
++--------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select number, avg(sales) as 평균  from tb group by number having sum(sales)>=100;
++--------+----------+
+| number | 평균     |
++--------+----------+
+| A103   |  43.3333 |
+| A102   | 129.5000 |
+| A104   | 137.0000 |
+| A101   | 242.0000 |
++--------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select number, avg(sales) as 평균  from tb group by number having sum(sales)>=300;
++--------+----------+
+| number | 평균     |
++--------+----------+
+| A101   | 242.0000 |
++--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select number, avg(sales) as 평균  from tb group by number having sum(sales)>=300 order by avg(sales) DESC;
++--------+----------+
+| number | 평균     |
++--------+----------+
+| A101   | 242.0000 |
++--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select number, avg(sales) as 평균  from tb group by number having sum(sales)>=100 order by avg(sales) DESC;
++--------+----------+
+| number | 평균     |
++--------+----------+
+| A101   | 242.0000 |
+| A104   | 137.0000 |
+| A102   | 129.5000 |
+| A103   |  43.3333 |
++--------+----------+
+4 rows in set (0.00 sec)
+
+
+mysql> select number, avg(sales) as 평균  from tb group by number having sum(sales)>=50 order by avg(sales)>=120 DESC;
++--------+----------+
+| number | 평균     |
++--------+----------+
+| A102   | 129.5000 |
+| A104   | 137.0000 |
+| A101   | 242.0000 |
+| A103   |  43.3333 |
+| A107   |  87.0000 |
++--------+----------+
+5 rows in set (0.00 sec)
+
+
+mysql> select number, avg(sales) as 평균  from tb group by number having sum(sales)>=50 and avg(sales)>=120 order by avg(sales) DESC;
++--------+----------+
+| number | 평균     |
++--------+----------+
+| A101   | 242.0000 |
+| A104   | 137.0000 |
+| A102   | 129.5000 |
++--------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select number, avg(sales)  from tb where sales>=50 group by number having avg(sales)>=120 order by avg(sales) DESC;
++--------+------------+
+| number | avg(sales) |
++--------+------------+
+| A101   |   242.0000 |
+| A104   |   137.0000 |
+| A102   |   129.5000 |
++--------+------------+
+3 rows in set (0.00 sec)
+
+
+mysql> create table sungjuck(
+    -> num int,
+    -> name varchar(10),
+    -> kor int,
+    -> eng int,
+    -> math int);
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> insert into sungjuck values(1,"송준기",100,80,80);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into sungjuck values(2,"이승기",100,100,100);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from sungjuck;
++------+--------+------+------+------+
+| num  | name   | kor  | eng  | math |
++------+--------+------+------+------+
+|    1 | 송준기 |  100 |   80 |   80 |
+|    2 | 이승기 |  100 |  100 |  100 |
++------+--------+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> alter table sungjuck add total int;
+Query OK, 0 rows affected (0.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from sungjuck;
++------+--------+------+------+------+-------+
+| num  | name   | kor  | eng  | math | total |
++------+--------+------+------+------+-------+
+|    1 | 송준기 |  100 |   80 |   80 |  NULL |
+|    2 | 이승기 |  100 |  100 |  100 |  NULL |
++------+--------+------+------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> update sungjuck set total = kor + eng + math;
+Query OK, 2 rows affected (0.09 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+mysql> alter table sungjuck add avg FLOAT;
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0

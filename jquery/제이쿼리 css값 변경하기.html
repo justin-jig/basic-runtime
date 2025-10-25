@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>css값 변경하기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+.box{width:50px; height:20px; background:yellow}
+</style>
+<script>
+$(function(){
+	var box = $('.box');
+	var btn_100px = $('.btn_100px');
+	var btn_200px = $('.btn_200px');
+	var btn_300px = $('.btn_300px');
+		
+		btn_100px.click(function(){
+					box.css('width','100px').css('height','40px');});
+		btn_200px.click(function(){
+					box.css('width','200px').css('height','60px');});
+		btn_300px.click(function(){
+					box.css('width','300px').css('height','80px');});	
+														
+	});
+</script>
+</head>
+
+<body>
+<div class="box"></div>
+<p class="btn_100px">100px</p>
+<p class="btn_200px">200px</p>
+<p class="btn_300px">300px</p>
+</body>
+</html>

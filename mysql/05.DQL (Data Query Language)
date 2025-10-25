@@ -1,0 +1,64 @@
+[DQL - Data Query Language]
+
+데이터 조회 명령어:
+- SELECT
+- WHERE
+- ORDER BY
+- GROUP BY
+- HAVING
+- LIMIT / OFFSET
+
+---
+
+# SELECT 기본
+select * from tb1k;
+select name, age from tb1k;
+
+# 별칭 사용
+select concat(number, ' ', name) as 고객정보 from tb1k;
+
+---
+
+# WHERE 조건
+select * from tb where sales >= 200;
+select * from tb where month in (4, 5);
+select * from tb where sales between 50 and 100;
+select * from tb where name like '%김%';
+select * from tb where age is null;
+
+---
+
+# ORDER BY / LIMIT
+select * from tb order by sales desc;
+select * from tb order by month asc limit 5 offset 2;
+
+---
+
+# GROUP BY / HAVING
+select number, sum(sales) as 합계
+from tb
+group by number
+having sum(sales) > 200
+order by 합계 desc;
+
+---
+
+# 집계 함수
+sum(), avg(), count(), max(), min()
+
+예시:
+select avg(sales) as 평균, sum(sales) as 총합 from tb;
+
+---
+
+# 문자열/함수 활용
+select reverse(name) from tb1k;
+select substring(number, 2, 3) from tb1k;
+select repeat('*', age) from tb1k;
+
+---
+
+# 주의사항
+1. 문자열 비교 시 대소문자 무시 (collation 설정에 따라 다름)
+2. group by 사용 시, select 절에는 집계 함수나 group 컬럼만 포함
+3. order by '합계' (문자열 리터럴) 사용 시 정렬 효과 없음

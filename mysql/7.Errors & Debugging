@@ -1,0 +1,67 @@
+[오류 및 디버깅]
+
+---
+
+# 자주 발생하는 오류
+
+1. ERROR 1064 (42000): Syntax Error
+- 원인: SQL 구문 오류 (쉼표 대신 마침표, 세미콜론 누락 등)
+- 예시:
+  create table tb1k(
+    number varchar(5),
+    name varchar(10).   -- ❌ 마침표 사용
+    age int
+  );
+- 해결:
+  create table tb1k(
+    number varchar(5),
+    name varchar(10),   -- ✅ 쉼표 사용
+    age int
+  );
+
+---
+
+2. ERROR 1054 (42S22): Unknown column
+- 원인: 존재하지 않는 컬럼명 호출
+- 예시: select reverse from tb1k;
+- 해결: select reverse(name) from tb1k;
+
+---
+
+3. ERROR 1146 (42S02): Table doesn’t exist
+- 원인: 잘못된 테이블명 입력 또는 DB 선택 안 함
+- 해결:
+  use addrdb;
+  show tables;
+
+---
+
+4. ERROR 1364: Field doesn't have a default value
+- 원인: NOT NULL 컬럼에 값 미입력
+- 해결: DEFAULT 지정 또는 NULL 허용
+
+---
+
+# 디버깅 명령어
+
+1. desc <table_name>;
+   → 테이블 구조 확인
+
+2. show create table <table_name>;
+   → 실제 생성문 확인
+
+3. explain <select 문>;
+   → 실행 계획(쿼리 최적화 확인)
+
+4. select @@sql_mode;
+   → 현재 SQL 모드 확인 (ONLY_FULL_GROUP_BY 등)
+
+---
+
+# 권장 디버깅 절차
+1. 에러 발생 시 → SQL 전체 복사  
+2. `mysql> \c` 로 현재 입력 중 문장 초기화  
+3. `desc` 및 `show tables` 로 환경 확인  
+4. 구문 오류는 `;` 위치와 괄호 개수를 우선 점검  
+5. 함수나 예약어 충돌 시 백틱(`)으로 감싸기
+

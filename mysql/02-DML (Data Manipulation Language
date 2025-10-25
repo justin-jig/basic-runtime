@@ -1,0 +1,47 @@
+[DML - Data Manipulation Language]
+
+데이터 조작 명령어:
+- INSERT
+- UPDATE
+- DELETE
+
+---
+
+# INSERT 예시
+insert into tb1k values('A101', '강신우', 40);
+insert into tb1k values('A105', '박문수', 35);
+
+-- 특정 컬럼만 지정 삽입
+insert into tb1k (number, name) values('A102', '김기덕');
+
+-- NULL 허용 컬럼 확인 후 일부 생략 가능
+insert into tb1k (name) values('문소리');
+
+---
+
+# UPDATE 예시
+update tb1k set age = 30 where number = 'A102';
+update tb1k set name = '이순신', age = 45 where number = 'A105';
+
+-- 여러 행 동시 수정 가능
+update tb1k set age = age + 1 where age < 40;
+
+---
+
+# DELETE 예시
+delete from tb1k where number = 'A104';
+delete from tb1k where age < 25;
+
+-- 전체 삭제 시 주의!
+delete from tb1k;   -- WHERE 절 없을 경우 모든 데이터 삭제
+truncate table tb1k; -- AUTO_INCREMENT 초기화 포함 (DDL 성격)
+
+---
+
+# 주의사항
+1. WHERE 절 누락은 전 행에 영향
+2. autocommit=1 이면 즉시 반영 → TCL(트랜잭션 제어)로 관리 가능
+3. 데이터 변경 전 select로 미리 검증 습관
+4. safe-updates 모드일 경우 PK 조건 필수
+```
+

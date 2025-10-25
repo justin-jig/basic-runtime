@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>제이쿼리 마우스 온 오버 이벤트</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.js">
+</script>
+<script>
+$(function(){
+		$('.yCircle').mouseenter(function(){
+				$('.word').text('마우스가 원안에 있습니다.');
+				});
+		$('.yCircle').mouseleave(function(){
+				$('.word').text('마우스가 원 바깥으로 나갔습니다.');
+				});		
+			});
+</script>
+</head>
+
+<body>
+<div class="yCircle" style="width:40px; height:40px; border-radius:20px; background-color:yellow"></div>
+
+
+<p class="word"> 노란색 원에 마우스를 올리고 내려 보세요.
+</p>
+<p>css 에서 롤올버: hover
+js에서 롤오버 onMouseOver onMouseOut
+jq에서 롤오버 .mouseenter mouseleave .hover
+
+</body>
+</html>

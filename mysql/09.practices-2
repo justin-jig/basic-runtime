@@ -1,0 +1,146 @@
+
+[MySQL 실습 문제 모음]
+
+---
+
+# 1️⃣ DDL 실습
+
+1. 데이터베이스 `addrdb` 생성 후 선택
+```
+
+create database addrdb;
+use addrdb;
+
+```
+
+2. 테이블 `tb1k` 생성
+```
+
+create table tb1k (
+number varchar(5),
+name varchar(10),
+age int
+);
+
+```
+
+3. 컬럼 추가 / 수정 / 삭제
+```
+
+alter table tb1k add address varchar(50);
+alter table tb1k modify age smallint;
+alter table tb1k drop column address;
+
+```
+
+---
+
+# 2️⃣ DML 실습
+
+1. 데이터 삽입
+```
+
+insert into tb1k values ('A101', '강신우', 40);
+insert into tb1k values ('A102', '김기덕', 28);
+insert into tb1k (number, name) values ('A103', '문소리');
+
+```
+
+2. 데이터 수정
+```
+
+update tb1k set age = 35 where number = 'A103';
+
+```
+
+3. 데이터 삭제
+```
+
+delete from tb1k where name = '문소리';
+
+```
+
+---
+
+# 3️⃣ DCL 실습
+
+1. 사용자 생성 및 권한 부여
+```
+
+create user 'testuser'@'localhost' identified by '1234';
+grant select, insert on addrdb.* to 'testuser'@'localhost';
+flush privileges;
+
+```
+
+2. 권한 회수
+```
+
+revoke insert on addrdb.* from 'testuser'@'localhost';
+
+```
+
+---
+
+# 4️⃣ TCL 실습
+
+1. 트랜잭션 실습
+```
+
+set autocommit = 0;
+insert into tb values('A108', 500, 7);
+rollback;
+commit;
+
+```
+
+2. savepoint 활용
+```
+
+savepoint sp1;
+update tb set sales = 200 where number = 'A104';
+rollback to sp1;
+
+```
+
+---
+
+# 5️⃣ DQL 실습
+
+1. 기본 조회
+```
+
+select * from tb1k;
+
+```
+
+2. 조건 조회
+```
+
+select * from tb where sales >= 200;
+select * from tb where month in (4, 5);
+
+```
+
+3. 정렬 / 페이징
+```
+
+select * from tb order by sales desc limit 3;
+
+```
+
+4. 집계 / 그룹
+```
+
+select number, sum(sales) as 합계
+from tb group by number
+having sum(sales) > 200;
+
+```
+
+5. 문자열 함수 활용
+```
+
+select reverse(name), substring(number, 2, 3) from tb1k;
+
+```

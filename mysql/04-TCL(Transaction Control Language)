@@ -1,0 +1,42 @@
+[TCL - Transaction Control Language]
+
+트랜잭션 제어 명령어:
+- COMMIT
+- ROLLBACK
+- SAVEPOINT
+- SET AUTOCOMMIT
+
+---
+
+# 트랜잭션 기본 흐름
+set autocommit = 0;      -- 자동 커밋 해제
+start transaction;        -- 명시적 트랜잭션 시작
+
+insert into tb values('A108', 999, 7);
+update tb set sales = 111 where number = 'A107';
+
+commit;   -- 모든 변경사항 영구 반영
+rollback; -- 마지막 커밋 이후 변경사항 취소
+
+---
+
+# SAVEPOINT 활용
+savepoint step1;
+update tb set sales = 200 where number = 'A104';
+rollback to step1;
+
+commit;
+
+---
+
+# 트랜잭션 상태 확인
+select @@autocommit;
+select @@transaction_isolation;
+
+---
+
+# 주의사항
+1. InnoDB 스토리지 엔진에서만 트랜잭션이 적용됨.
+2. autocommit=1 (기본) 상태에서는 각 쿼리 즉시 커밋됨.
+3. rollback은 commit 이후에는 되돌릴 수 없음.
+4. 여러 DML 명령어를 하나의 트랜잭션 단위로 관리하면 데이터 일관성을 보장할 수 있음.

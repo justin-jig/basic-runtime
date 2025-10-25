@@ -1,0 +1,27 @@
+[DDL - Data Definition Language]
+
+주요 명령어:
+- CREATE DATABASE / USE
+- CREATE TABLE / ALTER TABLE / DROP TABLE
+- 제약조건: PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+
+예시:
+create table tb1k(
+  number varchar(5),
+  name varchar(10),
+  age int
+);
+
+-- 테이블 수정
+alter table tb1k add address varchar(50);
+alter table tb1k modify age smallint;
+
+-- 테이블 삭제
+drop table tb1k;
+
+-- 주의사항
+1. 각 컬럼 정의 끝에는 반드시 쉼표(,) 사용
+2. 예약어와 컬럼명이 겹칠 경우 백틱(`)으로 감싸기
+3. DEFAULT / NOT NULL / AUTO_INCREMENT는 함께 조합 가능
+4. CREATE TABLE 실행 후 show tables; 로 생성 확인
+5. desc <table_name>; 로 컬럼 구조 확인

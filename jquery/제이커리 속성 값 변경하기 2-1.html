@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>제이쿼리 속성 값 변경하기2-1</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function(){
+	var myimg = $('.myimg');
+	var flag = true; //상태
+	myimg.click(function(){
+		if(flag){
+			myimg.attr('src','image/Koala.jpg');
+			myimg.fadeOut(0,function(){myimg.fadeIn(1000);});
+			flag=false;	
+			myimg.fadIn('100')}
+			
+			else{
+				myimg.attr('src','image/Hydrangeas.jpg');
+				myimg.fadeOut(0,function(){myimg.fadeIn(1000);});
+				flag=true;}	
+				});
+	
+	});
+</script>
+</head>
+
+<body>
+<img src="image/Hydrangeas.jpg" alt="" class="myimg">
+</body>
+</body>
+</html>
