@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".", // 기준 디렉터리 (상대 경로 기준점)
+    "lib": ["ES6", "dom", "dom.iterable", "esnext", "ScriptHost"], // 컴파일에 포함할 라이브러리
+    "outDir": "public/static", // 컴파일 결과(.js)가 생성될 폴더
+    "allowJs": true, // JS 파일 컴파일 허용
+    "noImplicitAny": true, // any 타입을 명시하지 않은 경우 오류 발생
+    "target": "es6", // 변환될 JavaScript 버전
+    "jsx": "preserve", // JSX를 유지 (React 변환은 Babel에서 수행)
+    "moduleResolution": "node", // 모듈 해석 방식 (Node.js 규칙)
+    "sourceMap": true, // sourcemap 생성 (디버깅 시 TypeScript ↔ JS 연결)
+    "allowSyntheticDefaultImports": true, // default export 없는 모듈의 default import 허용
+    "skipLibCheck": true, // 라이브러리 타입 선언 검사 생략 (빌드 속도 향상)
+    "esModuleInterop": true, // CommonJS/ESM 간 호환 활성화
+    "strict": true, // 모든 엄격한 검사 옵션 활성화
+    "forceConsistentCasingInFileNames": true, // import 대소문자 불일치 검사
+    "noFallthroughCasesInSwitch": true, // switch문 누락된 break 검사
+    "resolveJsonModule": true, // JSON import 허용
+    "isolatedModules": true, // 각 파일을 독립적으로 트랜스파일 가능하게 설정
+    "noEmit": false, // 컴파일 결과 파일 생성 여부 (true 시 생성 안함)
+    "incremental": true, // 증분 컴파일 활성화 (빌드 캐싱)
+    "module": "esnext", // 모듈 시스템 (webpack, vite 환경에서 esnext 사용)
+    "paths": {
+      "@library/*": ["./library/*"] // 절대 경로 import 매핑
+    }
+  },
+
+  // ESLint 규칙 예시
+  "no-unused-vars": "off",
+  "@typescript-eslint/no-unused-vars": "error",
+
+  // 제외 경로
+  "exclude": [
+    "node_modules",
+    "library",
+    "public",
+    "build",
+    "public/static"
+  ],
+
+  // 타입 루트 (기본값: node_modules/@types)
+  "typeRoots": ["node_modules/@types"],
+
+  // 타입 파일 직접 추가 (보통 tests, src 전체 포함)
+  "include": ["*.d.ts", "**/*.ts", "**/*.tsx", "src/**/*"]
+}

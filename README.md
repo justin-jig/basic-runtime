@@ -1,13 +1,16 @@
 
 
-<h1 align="center">back/nodejs Repository</h1>
+<h1 align="center">runtime(langague) Repository</h1>
 <p align="center">
-  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/front/buildTools/">https://justin-jig.github.io/justin-book/front/buildTools/</a></span><br/>
+  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/runtime">https://justin-jig.github.io/justin-book/runtime/</a></span><br/>
 </p>
 
 
 ### Repository 개요
-> BACK nodejs에  주제로 **개인 학습 기록 및 기술 정리용**입니다.  
+> 언어들 학습 주제로 **개인 학습 기록 및 기술 정리용**입니다.  
+> Java,python(추가예정),nodejs(추가예정)
+> javascript,typescript,jquery
+
 
 | 구분 | 설명 |
 |------|------|
@@ -29,6 +32,8 @@
 
 | 날짜 | 주요 변경 내용 |
 |------|----------------|
+| 2025-10-27 | typescript tpye 정리 추가 |
+| 2025-10-25 | java 기본 정리 추가 |
 | 2025-10-21 | 초기 README.md 구성 |
 
 
