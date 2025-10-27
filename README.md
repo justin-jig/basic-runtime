@@ -1,8 +1,8 @@
 
 
-<h1 align="center">back/nodejs Repository</h1>
+<h1 align="center">runtime(langague) Repository</h1>
 <p align="center">
-  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/front/buildTools/">https://justin-jig.github.io/justin-book/front/buildTools/</a></span><br/>
+  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/runtime">https://justin-jig.github.io/justin-book/runtime/</a></span><br/>
 </p>
 
 
