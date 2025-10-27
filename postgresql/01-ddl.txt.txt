@@ -1,0 +1,44 @@
+[DDL - 데이터 정의 언어]
+
+-- 데이터베이스 생성 및 접속
+CREATE DATABASE addrdb;
+\c addrdb;
+
+-- 테이블 생성
+CREATE TABLE tb1k (
+  number VARCHAR(5),
+  name   VARCHAR(10),
+  age    INT
+);
+
+
+[테이블 생성 및 스키마 변경 (DDL)]
+
+CREATE TABLE tb (
+  number VARCHAR(10),
+  sales  INT,
+  month  INT
+);
+
+CREATE TABLE sungjuck (
+  num  INT,
+  name VARCHAR(10),
+  kor  INT,
+  eng  INT,
+  math INT
+);
+
+-- 컬럼 추가 및 수정
+ALTER TABLE sungjuck ADD COLUMN total INT;
+UPDATE sungjuck SET total = kor + eng + math;
+
+ALTER TABLE sungjuck ADD COLUMN avg FLOAT;
+
+-- 날짜 테이블 (SERIAL + TIMESTAMP)
+CREATE TABLE rightnow (
+  a SERIAL PRIMARY KEY,
+  b TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO rightnow DEFAULT VALUES;
+SELECT * FROM rightnow;

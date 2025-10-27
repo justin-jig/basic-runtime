@@ -1,0 +1,9 @@
+[오류 및 문법 교정 요약]
+
+- 쉼표(,) 누락, 마침표(.) 사용 → 구문 오류 발생
+- REVERSE, CONCAT 등 함수는 괄호 필수
+- PostgreSQL에서는 문자열 연결에 CONCAT 대신 ||
+- GROUP BY 시 비집계 컬럼은 SELECT에 포함 불가 (표준 준수)
+- AND / OR 혼용 시 괄호로 우선순위 명확히
+- LIMIT 문법: PostgreSQL은 "LIMIT n OFFSET m"
+- LIKE 패턴은 대소문자 구분 (ILIKE 사용 시 무시)

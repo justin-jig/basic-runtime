@@ -1,0 +1,16 @@
+[SELECT / 문자열 및 수치 함수 예시]
+
+-- 문자열 처리
+SELECT number || name || '님' AS welcome FROM tb1k;
+SELECT RIGHT(number,2), LEFT(name,2) FROM tb1k;
+SELECT SUBSTRING(number FROM 2 FOR 3) FROM tb1k;
+SELECT REPEAT('*', age) FROM tb1k;
+SELECT REVERSE(name) FROM tb1k;
+
+-- 수치 및 집계
+SELECT SUM(sales) AS 합계 FROM tb;
+SELECT '합계는 ' || SUM(sales) || '만원입니다.' AS 매출 FROM tb;
+SELECT '평균은 ' || ROUND(AVG(sales),2) || '만원입니다.' AS 평균 FROM tb;
+
+-- 날짜/시간
+SELECT NOW() AS 현재시간;
