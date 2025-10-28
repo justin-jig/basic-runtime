@@ -25,6 +25,7 @@
 | **jqurey** | jqurey 정리 소스 |
 | **javascript** | js개념 정리 소스 |
 | **mysql** | mysql qurey 정리 |
+| **python** | python 정리 |
 | **typescript** | ts개념 정리 소스 |
 
 ##### 🧾 버전 관리 및 기록
