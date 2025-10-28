@@ -2,7 +2,7 @@
 
 <h1 align="center">Typescript Repository</h1>
 <p align="center">
-  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/front/core/">https://justin-jig.github.io/justin-book/front/core/</a></span><br/>
+  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/runtime/">https://justin-jig.github.io/justin-book/runtime/</a></span><br/>
 </p>
 
 
@@ -18,6 +18,7 @@
 ##### 📂 폴더 구조
 | 구분 | 설명 |
 |------|------|
+| **type** | type 정리 소스|
 | **tsconfig** | tsconfig 구성 소스 |
 
 

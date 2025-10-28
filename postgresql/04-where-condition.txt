@@ -1,0 +1,23 @@
+[WHERE / 조건문 / 논리 연산]
+
+-- 비교 및 범위
+SELECT * FROM tb WHERE sales >= 100;
+SELECT * FROM tb WHERE sales < 50;
+SELECT * FROM tb WHERE sales BETWEEN 50 AND 100;
+SELECT * FROM tb WHERE month <> 6;
+SELECT * FROM tb WHERE month IN (4);
+
+-- 논리 연산
+SELECT * FROM tb WHERE sales > 50 AND sales <= 100;
+SELECT * FROM tb WHERE sales < 50 OR sales > 2000;
+SELECT * FROM tb WHERE number LIKE '%1' AND (month = 4 OR sales >= 200);
+
+-- LIKE / 패턴
+SELECT * FROM tb1k WHERE name LIKE '%김%';
+SELECT * FROM tb1k WHERE name LIKE '%문%';
+SELECT * FROM tb1k WHERE number LIKE '%1%';
+SELECT * FROM tb1k WHERE number LIKE '%01%';
+
+-- NULL 검사
+SELECT * FROM tb1k WHERE age IS NULL;
+SELECT * FROM tb1k WHERE name IS NOT NULL;

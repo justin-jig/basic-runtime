@@ -1,0 +1,33 @@
+[DML - INSERT / UPDATE / DELETE]
+
+[데이터 조작 (DML)]
+
+-- tb1k 데이터 삽입
+INSERT INTO tb1k VALUES ('A101','강신우',40);
+INSERT INTO tb1k VALUES ('A105','박문수',35);
+INSERT INTO tb1k VALUES ('A102','김기덕',28);
+INSERT INTO tb1k VALUES ('A103','김민호',20);
+INSERT INTO tb1k VALUES ('A104','문소리',23);
+INSERT INTO tb1k (number, name) VALUES ('A104','문소리');
+INSERT INTO tb1k (number) VALUES ('A104');
+INSERT INTO tb1k (name) VALUES ('강부자');
+
+-- tb (매출)
+INSERT INTO tb VALUES
+('A103',101,4),
+('A102',54,5),
+('A104',181,4),
+('A101',184,4),
+('A103',17,5),
+('A101',300,5),
+('A102',205,6),
+('A104',93,5),
+('A103',12,6),
+('A107',87,6);
+
+-- sungjuck 데이터 삽입 및 갱신
+INSERT INTO sungjuck VALUES
+(1,'송준기',100,80,80),
+(2,'이승기',100,100,100);
+
+UPDATE sungjuck SET total = kor + eng + math;

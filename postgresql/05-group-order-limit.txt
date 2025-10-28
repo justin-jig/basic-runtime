@@ -1,0 +1,25 @@
+[집계 / 정렬 / 페이징]
+
+-- GROUP BY / HAVING
+SELECT number, COUNT(*) AS 건수
+FROM tb
+GROUP BY number;
+
+SELECT number, SUM(sales) AS 합계
+FROM tb
+GROUP BY number
+ORDER BY SUM(sales) DESC;
+
+SELECT number, AVG(sales) AS 평균
+FROM tb
+GROUP BY number
+HAVING SUM(sales) >= 200
+ORDER BY AVG(sales) DESC;
+
+-- LIMIT / OFFSET
+SELECT * FROM tb LIMIT 5;
+SELECT * FROM tb OFFSET 2 LIMIT 5;
+
+-- ORDER BY
+SELECT * FROM tb ORDER BY sales DESC LIMIT 2 OFFSET 3;
+SELECT * FROM tb ORDER BY number;
