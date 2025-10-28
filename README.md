@@ -25,6 +25,7 @@
 | **jqurey** | jqurey 정리 소스 |
 | **javascript** | js개념 정리 소스 |
 | **mysql** | mysql qurey 정리 |
+| **postgresql** | python 정리 |
 | **python** | python 정리 |
 | **typescript** | ts개념 정리 소스 |
 
@@ -33,6 +34,8 @@
 
 | 날짜 | 주요 변경 내용 |
 |------|----------------|
+| 2025-10-28 | python  정리 추가 |
+| 2025-10-28 | postgresql  정리 추가 |
 | 2025-10-27 | typescript tpye 정리 추가 |
 | 2025-10-25 | java 기본 정리 추가 |
 | 2025-10-21 | 초기 README.md 구성 |
