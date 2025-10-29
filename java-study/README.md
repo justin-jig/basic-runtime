@@ -7,7 +7,7 @@
 
 ### java 목차 — MySQL 명령어 체계별 정리
 ── java/
-    ├── 01-array       # array 문법
-    ├── 02-basic      # 기본 문법
-    ├── 03-class      # class 문법
+    ├── 01-arrayStudy       # arrayStudy 문법
+    ├── 02-basicStudy      # 기본 문법
+    ├── 03-classStudy      # class 문법
     ├── 04-pratice    # 연습 소스
