@@ -2,7 +2,7 @@
 
 <h1 align="center">back/nodejs Repository</h1>
 <p align="center">
-  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/runtime/mysql/">https://[justin-jig.github.io/justin-book/runtime/porsgreSQL](https://justin-jig.github.io/justin-book/runtime/porsgreSQL</a></span><br/>
+  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/runtime/">https://[justin-jig.github.io/justin-book/runtime](https://justin-jig.github.io/justin-book/runtime/</a></span><br/>
 </p>
 
 

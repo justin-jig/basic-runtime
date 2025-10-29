@@ -2,7 +2,7 @@
 
 <h1 align="center">mysql Repository</h1>
 <p align="center">
-  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/runtime/mysql/">https://[justin-jig.github.io/justin-book/front/buildTools](https://justin-jig.github.io/justin-book/runtime/mysql</a></span><br/>
+  <span>노트 정리 : <a href="https://justin-jig.github.io/justin-book/runtime/">https://[justin-jig.github.io/justin-book/runtime/](https://justin-jig.github.io/justin-book/runtime/</a></span><br/>
 </p>
 
 ### GitBook 목차 — MySQL 명령어 체계별 정리
